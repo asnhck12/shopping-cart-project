@@ -1,0 +1,22 @@
+.header {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    align-items: center;
+}
+
+.navBar {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    font-size: x-large;
+}
+
+.logo {
+    text-align: left;
+    margin-left: 20px;
+}
+
+.header img {
+    width: 40px;
+    height: auto;
+}
