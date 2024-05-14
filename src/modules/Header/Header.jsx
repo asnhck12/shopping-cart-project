@@ -1,5 +1,6 @@
 import './Header.css';
 import basket from "/src/assets/cart.svg";
+import { Link } from 'react-router-dom';
 
 function Header () {
 
@@ -12,10 +13,10 @@ function Header () {
             </div>
             <div className="navBar">
                 <div className="homeButton">
-                    Home
+                    <Link to='/'>Home</Link>
                 </div>
                 <div className="shopButton">
-                    Shop
+                    <Link to='shop'>Shop</Link>
                 </div>
                 <div className="shoppingCart">
                     <img src={basket}/>

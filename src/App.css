@@ -2,7 +2,7 @@
   min-height: 100vh;
   text-align: center;
   display: grid;
-  grid-template-rows: 2fr 14fr 1fr;
+  grid-template-rows: 100px 1fr 100px;
   width: auto
 }
 

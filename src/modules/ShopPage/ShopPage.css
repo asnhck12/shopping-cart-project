@@ -1,0 +1,39 @@
+.productImg {
+    width: 200px;
+    height: auto;
+}
+
+.shopSection {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.productCard {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    width: 300px;
+    height: auto;
+    align-items: center;
+    justify-items: center;
+    border: 1px black solid;
+    padding: 5px;
+}
+
+.productCard button {
+    background-color: white;
+    border: 1px solid black;
+    height: 20px;
+}
+
+.quantityValue {
+    width: 20px;
+    text-align: center;
+    border: 1px solid black;
+    height: 16px;
+}
+
+.purchasingSection {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
