@@ -1,8 +1,18 @@
+/* eslint-disable react/prop-types */
+// import { useState } from 'react';
 import './Header.css';
 import basket from "/src/assets/cart.svg";
 import { Link } from 'react-router-dom';
 
-function Header () {
+function Header ({items}) {
+
+    const totalQuantity = () => {
+        const total = items.reduce((total, item) => total + item.quantity, 0)
+        console.log("header total: " + total)
+        return parseInt(total);
+   }
+
+   console.log("header total: " + totalQuantity());
 
     return (
         <>
@@ -19,7 +29,8 @@ function Header () {
                     <Link to='shop'>Shop</Link>
                 </div>
                 <div className="shoppingCart">
-                    <img src={basket}/>
+                    <Link to='cart'><img src={basket}/></Link>
+                    <p>{totalQuantity()}</p>
                 </div>
             </div>
         </div>

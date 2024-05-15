@@ -1,11 +1,14 @@
 import {useState, useEffect} from "react";
 import "./ShopPage.css";
+import { useOutletContext } from "react-router-dom";
 
 function ShopPage () {
     const [products, setProducts] = useState([]);
-    const [quantities, setQuantities] = useState('1');
-    const [addedItems, setAddedItems] = useState([]);
+    const [quantities, setQuantities] = useState({});
+    const { addedItems, addItemToCart } = useOutletContext();
 
+    console.log("Context in ShopPage: ", { addedItems, addItemToCart });
+    
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -28,26 +31,35 @@ function ShopPage () {
     }, []);
 
     const plusClick = (productID) => {
-        setQuantities(prevQuantities => ({
+        setQuantities((prevQuantities) => ({
             ...prevQuantities,
-            [productID]: prevQuantities[productID] + 1
+            [productID]: prevQuantities[productID] + 1,
         }));
     }
 
     const minusClick = (productID) => {
         if (quantities[productID] > 1) {
-        setQuantities(prevQuantities => ({
+        setQuantities((prevQuantities) => ({
             ...prevQuantities,
-            [productID]: prevQuantities[productID] - 1
+            [productID]: prevQuantities[productID] - 1,
         }));
     }
 };
 
-    const addToCart = (productID, quantity, pricing) => {
-        const newArray = {item: productID, quantity: quantity, price: pricing};
-        setAddedItems(list => [...list, newArray]);
-        console.log(addedItems);
-    }
+    const addToCart = (image, productID, quantity, price) => {
+        const existingItem = addedItems.find((item) => item.item === productID);
+
+        if (existingItem) {
+            const updatedItems = addedItems.map((item) =>
+            item.item === productID
+        ? { ...item, quantity: item.quantity + quantity}
+    : item);
+    addItemToCart(updatedItems);
+}
+ else {
+    const newArray = {image: image,item: productID, quantity: quantity, price: price};
+    addItemToCart([...addedItems, newArray]);
+}}
 
     return (
         <>
@@ -64,7 +76,7 @@ function ShopPage () {
                             <button className="increase" onClick={() => plusClick(product.id)}>+</button>
                             </div>
                             <div className="add">
-                                <button className="addToCart" onClick={() => addToCart(product.id, quantities[product.id],product.price)}>Add to Cart</button>
+                                <button className="addToCart" onClick={() => addToCart(product.image, product.id, quantities[product.id],product.price)}>Add to Cart</button>
                                 </div>
                                 </div>
                                 </div> 

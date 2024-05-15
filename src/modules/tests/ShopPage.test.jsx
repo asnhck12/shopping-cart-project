@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import ShopPage from './ShopPage';
+import ShopPage from '../ShopPage/ShopPage';
 
 describe('the items are listed open', () => {
     it('fetches and displays products', async () => {
@@ -38,19 +38,19 @@ describe('the items are listed open', () => {
         expect(quantityInput).toHaveValue('1')
     });
 
-    // it('adds items to cart', async () => {
-    //     render(<ShopPage />);
+    it('adds items to cart', async () => {
+        render(<ShopPage />);
 
-    //     await waitFor(() => {
-    //         expect(screen.getByText('DANVOUY Womens T Shirt Casual Cotton Short')).toBeInTheDocument();
-    //     });
+        await waitFor(() => {
+            expect(screen.getByText('DANVOUY Womens T Shirt Casual Cotton Short')).toBeInTheDocument();
+        });
 
-    //     const addToCartButton = screen.getAllByText('Add to Cart')[20];
+        const addToCartButton = screen.getAllByText('Add to Cart')[20];
 
-    //     fireEvent.click(addToCartButton);
+        fireEvent.click(addToCartButton);
 
-    //     //code to test add to cart
+        //code to test add to cart
 
-    //     expect(screen.getAllByText('Add to Cart')[0]).toBeInTheDocument();
-// });
+        expect(screen.getByText('Item Name')).toBeInTheDocument();
+});
 });

@@ -2,6 +2,7 @@ import hero from "/src/assets/homepage_hero.jpg";
 import './HomePage.css';
 
 function HomePage () {
+    
     return (
     <>
     <div className="heroSection">
