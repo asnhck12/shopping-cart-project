@@ -29,8 +29,8 @@ function Header ({items}) {
                     <Link to='shop'>Shop</Link>
                 </div>
                 <div className="shoppingCart">
-                    <Link to='cart'><img src={basket}/></Link>
-                    <p>{totalQuantity()}</p>
+                    <Link to='cart'><img src={basket} alt="Shopping Cart"/>
+                    <p className='itemsCount'>{totalQuantity()}</p></Link>
                 </div>
             </div>
         </div>

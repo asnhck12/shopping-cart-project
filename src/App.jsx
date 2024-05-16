@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-    <div>
+    <div className='fullDisplay'>
       <Header items={addedItems}/>
       <Outlet context={{ addedItems, addItemToCart }}/>
       <Footer/>

@@ -2,8 +2,8 @@
   min-height: 100vh;
   text-align: center;
   display: grid;
-  grid-template-rows: 100px 1fr 100px;
-  width: auto
+  /* grid-template-rows: 100px 1fr 100px; */
+  width: 100%
 }
 
 body {
@@ -12,4 +12,10 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+.fullDisplay {
+  display: grid;
+  grid-template-rows: 100px 1fr 100px;
+  height: 100vh;
 }
