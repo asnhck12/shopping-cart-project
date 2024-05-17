@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-// import ShopPage from '../ShopPage/ShopPage';
 import routesConfig from '../../routeConfig';
 
 describe('the items are listed open', () => {
@@ -10,9 +9,7 @@ describe('the items are listed open', () => {
             initialEntries: ['/shop']
           })
           render(<RouterProvider router={router} /> )
-  
-        // render(<ShopPage />
-        // );
+
 
         await waitFor(() => {
             expect(screen.getByText('Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops')).toBeInTheDocument();
