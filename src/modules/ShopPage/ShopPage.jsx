@@ -7,7 +7,6 @@ function ShopPage () {
     const [quantities, setQuantities] = useState({});
     const { addedItems, addItemToCart } = useOutletContext();
 
-    console.log("Context in ShopPage: ", { addedItems, addItemToCart });
     
     useEffect(() => {
         const fetchProducts = async () => {

@@ -1,11 +1,18 @@
 import { describe, it, expect } from 'vitest';
-
+import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import ShopPage from '../ShopPage/ShopPage';
+// import ShopPage from '../ShopPage/ShopPage';
+import routesConfig from '../../routeConfig';
 
 describe('the items are listed open', () => {
     it('fetches and displays products', async () => {
-        render(<ShopPage />);
+        const router = createMemoryRouter(routesConfig, {
+            initialEntries: ['/shop']
+          })
+          render(<RouterProvider router={router} /> )
+  
+        // render(<ShopPage />
+        // );
 
         await waitFor(() => {
             expect(screen.getByText('Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops')).toBeInTheDocument();
@@ -14,7 +21,10 @@ describe('the items are listed open', () => {
         })
     })
     it('handles quantity changes', async () => {
-        render(<ShopPage />);
+        const router = createMemoryRouter(routesConfig, {
+            initialEntries: ['/shop']
+          })
+          render(<RouterProvider router={router} /> )
 
         await waitFor(() => {
             expect(screen.getByText('White Gold Plated Princess')).toBeInTheDocument();            
@@ -39,18 +49,19 @@ describe('the items are listed open', () => {
     });
 
     it('adds items to cart', async () => {
-        render(<ShopPage />);
+        const router = createMemoryRouter(routesConfig, {
+            initialEntries: ['/shop']
+          })
+          render(<RouterProvider router={router} /> )
 
         await waitFor(() => {
             expect(screen.getByText('DANVOUY Womens T Shirt Casual Cotton Short')).toBeInTheDocument();
         });
 
-        const addToCartButton = screen.getAllByText('Add to Cart')[20];
+        const addToCartButton = screen.getAllByText('Add to Cart')[10];
 
         fireEvent.click(addToCartButton);
 
-        //code to test add to cart
-
-        expect(screen.getByText('Item Name')).toBeInTheDocument();
+        expect(screen.getByText('1')).toBeInTheDocument();
 });
 });
