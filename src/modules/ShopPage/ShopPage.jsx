@@ -7,7 +7,7 @@ function ShopPage () {
     const [quantities, setQuantities] = useState({});
     const { addedItems, addItemToCart } = useOutletContext();
 
-    
+    //Get all products via API
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -45,6 +45,7 @@ function ShopPage () {
     }
 };
 
+    //adds item and quantity to cart, and only quantity for items already in the cart
     const addToCart = (image, productID, quantity, price) => {
         const existingItem = addedItems.find((item) => item.item === productID);
 
@@ -58,7 +59,14 @@ function ShopPage () {
  else {
     const newArray = {image: image,item: productID, quantity: quantity, price: price};
     addItemToCart([...addedItems, newArray]);
-}}
+}
+//Reset the items quantity on the store page after adding it to the basket
+setQuantities((prevQuantities) => ({
+    ...prevQuantities,
+    [productID]: 1,
+}));
+
+}
 
     return (
         <>

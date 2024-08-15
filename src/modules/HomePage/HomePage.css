@@ -10,11 +10,10 @@
 
 .heroSection p {
     position: absolute;
-    top: 650px;
+    top: 10px;
     left: 0;
     width: 100%;
-    /* padding: 10px; */
     color: white;
-    font-size: xx-large;
-
+    font-size: 50px;
+    font-weight: bold;
 }

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Header ({items}) {
 
+    //displays total number of items in the basket
     const totalQuantity = () => {
         const total = items.reduce((total, item) => total + item.quantity, 0)
         return parseInt(total);

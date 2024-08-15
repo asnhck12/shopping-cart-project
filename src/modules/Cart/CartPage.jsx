@@ -4,6 +4,7 @@ import './CartPage.css';
 function CartPage() {
     const {addedItems} = useOutletContext();
 
+    //Gets the total cost amount 
     const getTotalCost = () => {
          const totalCost = addedItems.reduce((total, item) => total + item.quantity * item.price, 0)
          return parseFloat(totalCost).toFixed(2);

@@ -7,6 +7,7 @@ import { Outlet } from 'react-router-dom'
 function App() {
   const [addedItems, setAddedItems] = useState([]);
 
+  //Stores the shopping list items, quantity and price across the components
   const addItemToCart = (items) => {
     setAddedItems(items);
 };
