@@ -4,6 +4,8 @@ A Shopping App project that allows users to browse and add items to the shopping
 
 The app was built using React.
 
+Access the live site here: https://shopnowproject.netlify.app/
+
 ![Screenshot 2024-08-15 at 11-06-16 Shop Here](https://github.com/user-attachments/assets/64ed9805-5074-4e66-9fdf-33f71cbc9ad0)
 
 
